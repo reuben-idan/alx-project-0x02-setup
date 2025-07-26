@@ -1,26 +1,38 @@
 // pages/posts.tsx
 import Head from "next/head";
-import Card from "@/components/common/Card";
+import { GetStaticProps } from "next";
+import PostCard from "@/components/common/PostCard";
 import Header from "@/components/layout/Header";
+import { type PostProps } from "@/interfaces";
 
-const PostsPage = () => {
-  const posts = [
-    {
-      title: "Getting Started with Next.js",
-      content:
-        "Learn the basics of Next.js and how to create your first application.",
-    },
-    {
-      title: "Working with TypeScript",
-      content:
-        "Discover how TypeScript can improve your development experience.",
-    },
-    {
-      title: "Styling with Tailwind CSS",
-      content: "Learn how to use Tailwind CSS for rapid UI development.",
-    },
-  ];
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
+interface ApiPost {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+}
+
+export const getStaticProps: GetStaticProps<PostsPageProps> = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts: ApiPost[] = await res.json();
+
+  return {
+    props: {
+      posts: posts.map((post) => ({
+        title: post.title,
+        content: post.body,
+        userId: post.userId,
+      })),
+    },
+    revalidate: 60,
+  };
+};
+
+const PostsPage = ({ posts }: PostsPageProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -36,7 +48,12 @@ const PostsPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, index) => (
-            <Card key={index} title={post.title} content={post.content} />
+            <PostCard
+              key={index}
+              title={post.title}
+              content={post.content}
+              userId={post.userId}
+            />
           ))}
         </div>
       </main>

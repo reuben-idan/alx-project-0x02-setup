@@ -19,6 +19,43 @@ export interface CardProps {
   content: string;
 }
 
+export interface PostProps {
+  /** The title of the post */
+  title: string;
+  /** The content of the post */
+  content: string;
+  /** The ID of the user who created the post */
+  userId: number;
+}
+
+/**
+ * @interface PostProps
+ * @description Interface for the PostCard component props
+ */
+export interface PostProps {
+  /** The title of the post */
+  title: string;
+  /** The content of the post */
+  content: string;
+  /** The ID of the user who created the post */
+  userId: number;
+}
+
+/**
+ * @interface Post
+ * @description Interface for the post data from the API
+ */
+export interface Post {
+  /** The unique identifier of the post */
+  id: number;
+  /** The title of the post */
+  title: string;
+  /** The body/content of the post */
+  body: string;
+  /** The ID of the user who created the post */
+  userId: number;
+}
+
 export interface PostData {
   title: string;
   content: string;
