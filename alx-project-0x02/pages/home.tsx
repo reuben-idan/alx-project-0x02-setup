@@ -60,46 +60,6 @@ const HomePage = () => {
       </main>
     </div>
   );
-
-        <div className="flex flex-wrap justify-center gap-6">
-          <Card
-            title="Getting Started with Next.js"
-            content="Learn about Next.js features and API. This framework makes it easy to create full-stack web applications."
-          />
-          <Card
-            title="React Fundamentals"
-            content="Understand React concepts like components, props, and state management for building interactive UIs."
-          />
-          <Card
-            title="TypeScript Benefits"
-            content="Discover how TypeScript improves your development experience with static typing and better tooling."
-          />
-        </div>
-        <p className="text-lg text-gray-700 max-w-2xl text-center mb-12">
-          This page demonstrates the reusability of the `Card` component.
-        </p>
-
-        <div className="flex flex-wrap justify-center">
-          <Card
-            title="Next.js Basics"
-            content="Learn how to get started with Next.js, including file-system routing and data fetching concepts."
-          />
-          <Card
-            title="TypeScript Power"
-            content="Explore the benefits of TypeScript for building scalable and maintainable React applications."
-          />
-          <Card
-            title="Tailwind CSS Magic"
-            content="Discover how Tailwind CSS simplifies styling with utility-first classes for rapid UI development."
-          />
-          <Card
-            title="Reusable Components"
-            content="Understand the importance of creating modular and reusable components for efficient development."
-          />
-        </div>
-      </main>
-    </Layout>
-  );
 };
 
 export default HomePage;
