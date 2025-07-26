@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Card from "@/components/common/Card";
 import PostModal from "@/components/common/PostModal";
-import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
 import { type PostData } from "@/interfaces";
 
 const HomePage = () => {
@@ -24,7 +24,8 @@ const HomePage = () => {
   };
 
   return (
-    <Layout>
+    <div className="min-h-screen flex flex-col">
+      <Header />
       <Head>
         <title>Home Page</title>
         <meta

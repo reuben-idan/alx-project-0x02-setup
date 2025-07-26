@@ -1,11 +1,12 @@
 // pages/about.tsx
 import Head from "next/head";
 import Button from "@/components/common/Button";
-import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
 
 const AboutPage = () => {
   return (
-    <Layout>
+    <div className="min-h-screen flex flex-col">
+      <Header />
       <Head>
         <title>About Page</title>
         <meta

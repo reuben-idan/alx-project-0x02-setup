@@ -1,7 +1,7 @@
 // pages/posts.tsx
 import Head from "next/head";
 import Card from "@/components/common/Card";
-import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
 
 const PostsPage = () => {
   const posts = [
@@ -22,7 +22,8 @@ const PostsPage = () => {
   ];
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
       <Head>
         <title>Posts</title>
         <meta name="description" content="View our latest posts and updates" />
