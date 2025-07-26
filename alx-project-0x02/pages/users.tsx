@@ -1,27 +1,33 @@
 // pages/users.tsx
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { useState, useEffect } from "react";
 import UserCard from "@/components/common/UserCard";
 import Header from "@/components/layout/Header";
 import { type UserProps } from "@/interfaces";
 
-interface UsersPageProps {
-  users: UserProps[];
-}
+const UsersPage = () => {
+  const [users, setUsers] = useState<UserProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-export const getStaticProps: GetStaticProps<UsersPageProps> = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users: UserProps[] = await res.json();
+const UsersPage = () => {
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        if (!response.ok) throw new Error('Failed to fetch users');
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch users');
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  return {
-    props: {
-      users,
-    },
-    revalidate: 60,
-  };
-};
+    fetchUsers();
+  }, []);
 
-const UsersPage = ({ users }: UsersPageProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -35,8 +41,16 @@ const UsersPage = ({ users }: UsersPageProps) => {
           Our Users
         </h1>
 
+        {isLoading && (
+          <div className="text-xl text-gray-600">Loading users...</div>
+        )}
+
+        {error && (
+          <div className="text-xl text-red-600">{error}</div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {users.map((user) => (
+          {users.map((user: UserProps) => (
             <UserCard
               key={user.email}
               name={user.name}
