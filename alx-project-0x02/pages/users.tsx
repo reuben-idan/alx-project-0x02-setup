@@ -1,29 +1,19 @@
 // pages/users.tsx
 import Head from "next/head";
-import { type GetStaticProps } from "next"; // Import GetStaticProps type
-// import { useState, useEffect } from "react"; // No longer needed for data fetching
+import { type GetStaticProps } from "next";
 import UserCard from "@/components/common/UserCard";
-// import Header from "@/components/layout/Header"; // Header is already in _app.tsx
-import { type UserProps } from "@/interfaces"; // Using the defined UserProps
+import Header from "@/components/layout/Header";
+import { type UserProps } from "@/interfaces";
 
-// Define the props type for the UsersPage component
 interface UsersPageProps {
   users: UserProps[];
 }
 
 const UsersPage = ({ users }: UsersPageProps) => {
-  // No need for isLoading, error states for getStaticProps
-  // const [users, setUsers] = useState<UserProps[]>([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState("");
-
-  // Data fetching logic moved to getStaticProps
-  // useEffect(() => { ... }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header is now managed globally in _app.tsx, so no need to import/render here */}
-      {/* <Header /> */}
+      <Header />
       <Head>
         <title>Users</title>
         <meta name="description" content="View our user community" />
@@ -34,22 +24,15 @@ const UsersPage = ({ users }: UsersPageProps) => {
           Our Users
         </h1>
 
-        {/* Loading and Error states are not typical for getStaticProps,
-            as data is fetched at build time. */}
-        {/* {isLoading && (
-          <div className="text-xl text-gray-600">Loading users...</div>
-        )}
-        {error && (
-          <div className="text-xl text-red-600">{error}</div>
-        )} */}
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {users.map((user: UserProps) => (
+          {users.map((user, index) => (
             <UserCard
-              key={user.id} // Using user.id as key, which is unique
+              key={index}
               name={user.name}
               email={user.email}
-              address={user.address} // Pass the full address object
+              address={user.address}
             />
           ))}
         </div>
