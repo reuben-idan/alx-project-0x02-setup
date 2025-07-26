@@ -1,10 +1,11 @@
 // pages/about.tsx
 import Head from "next/head";
 import Button from "@/components/common/Button";
+import Layout from "@/components/layout/Layout";
 
 const AboutPage = () => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>About Page</title>
         <meta
@@ -13,7 +14,7 @@ const AboutPage = () => {
         />
       </Head>
 
-      <main className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-r from-purple-50 to-pink-50">
+      <main className="flex-1 flex flex-col items-center justify-center p-8 bg-gradient-to-r from-purple-50 to-pink-50">
         <h1 className="text-5xl font-extrabold text-purple-700 mb-12">
           About Us
         </h1>

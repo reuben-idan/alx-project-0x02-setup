@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Card from "@/components/common/Card";
 import PostModal from "@/components/common/PostModal";
+import Layout from "@/components/layout/Layout";
 import { type PostData } from "@/interfaces";
 
 const HomePage = () => {
@@ -23,7 +24,7 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Home Page</title>
         <meta
@@ -32,7 +33,7 @@ const HomePage = () => {
         />
       </Head>
 
-      <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <main className="flex-1 flex flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-50 to-indigo-50">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-12">
           Welcome to Our Project
         </h1>
@@ -96,7 +97,7 @@ const HomePage = () => {
           />
         </div>
       </main>
-    </div>
+    </Layout>
   );
 };
 

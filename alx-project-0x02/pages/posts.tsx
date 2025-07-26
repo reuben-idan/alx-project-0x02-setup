@@ -1,6 +1,7 @@
 // pages/posts.tsx
 import Head from "next/head";
 import Card from "@/components/common/Card";
+import Layout from "@/components/layout/Layout";
 
 const PostsPage = () => {
   const posts = [
