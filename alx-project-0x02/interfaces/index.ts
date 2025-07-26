@@ -42,6 +42,24 @@ export interface PostProps {
 }
 
 /**
+ * @interface UserProps
+ * @description Interface for user details in UserCard component
+ */
+export interface UserProps {
+  /** The name of the user */
+  name: string;
+  /** The email address of the user */
+  email: string;
+  /** The address of the user */
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+  };
+}
+
+/**
  * @interface Post
  * @description Interface for the post data from the API
  */
