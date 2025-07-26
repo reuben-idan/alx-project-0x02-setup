@@ -11,6 +11,16 @@ export interface CardProps {
   content: string;
 }
 
-// You can define other interfaces here as your project grows.
-// export interface User { ... }
-// export interface Post { ... }
+export interface PostData {
+  title: string;
+  content: string;
+}
+
+export interface PostModalProps {
+  /** Whether the modal is currently visible */
+  isOpen: boolean;
+  /** Function to call when the modal should be closed */
+  onClose: () => void;
+  /** Function to call when the form is submitted */
+  onSubmit: (data: PostData) => void;
+}
