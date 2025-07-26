@@ -10,7 +10,6 @@ const UsersPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
