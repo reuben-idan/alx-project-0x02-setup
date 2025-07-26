@@ -17,6 +17,14 @@ const Header = () => {
               href="/"
               className="hover:text-blue-200 transition-colors duration-200"
             >
+              Index
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/home"
+              className="hover:text-blue-200 transition-colors duration-200"
+            >
               Home
             </Link>
           </li>
