@@ -2,12 +2,13 @@
 
 /**
  * @interface CardProps
- * @description Props for the reusable Card component.
+ * @description Interface for the reusable Card component props
  */
 export interface CardProps {
+  /** The title to be displayed in the card */
   title: string;
+  /** The content text to be displayed in the card */
   content: string;
-  // You can add more props here later if needed, e.g., imageUrl?: string;
 }
 
 // You can define other interfaces here as your project grows.

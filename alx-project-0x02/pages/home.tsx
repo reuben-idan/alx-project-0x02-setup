@@ -1,7 +1,6 @@
 // pages/home.tsx
 import Head from "next/head";
-import Card from "../components/layout/common/Card"; // Import the new Card component
-// Removed: import Header from '../components/layout/Header'; // Header is now in _app.tsx
+import Card from "../components/common/Card";
 
 const HomePage = () => {
   return (
@@ -10,16 +9,29 @@ const HomePage = () => {
         <title>Home Page</title>
         <meta
           name="description"
-          content="This is the Home page of the ALX Next.js project."
+          content="Welcome to our Next.js project homepage"
         />
       </Head>
 
-      {/* No Header component here anymore, it's in _app.tsx */}
-
       <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-50 to-indigo-50">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-12">
-          Welcome to the Home Page!
+          Welcome to Our Project
         </h1>
+
+        <div className="flex flex-wrap justify-center gap-6">
+          <Card
+            title="Getting Started with Next.js"
+            content="Learn about Next.js features and API. This framework makes it easy to create full-stack web applications."
+          />
+          <Card
+            title="React Fundamentals"
+            content="Understand React concepts like components, props, and state management for building interactive UIs."
+          />
+          <Card
+            title="TypeScript Benefits"
+            content="Discover how TypeScript improves your development experience with static typing and better tooling."
+          />
+        </div>
         <p className="text-lg text-gray-700 max-w-2xl text-center mb-12">
           This page demonstrates the reusability of the `Card` component.
         </p>
