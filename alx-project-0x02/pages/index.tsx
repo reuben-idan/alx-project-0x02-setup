@@ -10,6 +10,8 @@ const HomePage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* No Header component here anymore, it's in _app.tsx */}
+
       <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-50">
         <h1 className="text-6xl font-bold text-blue-600 mb-4">
           Welcome to ALX Next.js Project!
